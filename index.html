@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafael 🇧🇷</title>
+    <style>
+      @property --angle {
+        syntax: "<angle>";
+        inherits: true;
+        initial-value: 0deg;
+      }
+
+      @property --z {
+        syntax: "<integer>";
+        inherits: true;
+        initial-value: 0;
+      }
+
+      @keyframes revolve {
+        from {
+          --angle: 0deg;
+          --z: -1;
+        }
+        to {
+          --angle: 360deg;
+          --z: 0;
+        }
+      }
+
+      html {
+        overflow: hidden;
+      }
+
+      body {
+        margin: 0;
+        background-color: #141733;
+        overflow: clip;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        max-width: 1200px;
+      }
+
+      .text-content {
+        flex: 1;
+        color: whitesmoke;
+        font-size: 1.5rem;
+        line-height: 1.6;
+        text-align: justify;
+        padding: 2rem;
+        max-width: 800px;
+      }
+
+      .animation-container {
+        position: fixed;
+        top: 320px;
+        right: 20px;
+        width: 400px;
+      }
+
+      .planet,
+      .moon,
+      .satellite,
+      .potato,
+      .gabi,
+      .br {
+        position: absolute;
+        padding: 10px;
+        border: 4px dashed #f4ead5;
+        border-radius: 50%;
+        background-color: #215a6d;
+        overflow: hidden;
+      }
+
+      .moon,
+      .satellite,
+      .potato,
+      .gabi,
+      .br {
+        --x-amplitude: 100px;
+        --y-amplitude: 30px;
+        --x: calc(cos(var(--angle)) * var(--x-amplitude));
+        --y: calc(sin(var(--angle)) * var(--y-amplitude));
+        transform: rotate(var(--rotation)) translate(var(--x), var(--y))
+          rotate(calc(var(--rotation) * -1));
+        z-index: calc(var(--z));
+        animation: revolve 6s linear infinite;
+      }
+
+      .moon {
+        --rotation: 0deg;
+        animation-delay: 0s;
+      }
+
+      .satellite {
+        --rotation: 60deg;
+        animation-delay: -2s;
+      }
+
+      .potato {
+        --rotation: 10deg;
+        animation-delay: -4s;
+      }
+
+      .gabi {
+        --rotation: 120deg;
+        animation-delay: -4s;
+      }
+
+      .br {
+        --rotation: 80deg;
+        animation-delay: -4s;
+      }
+
+      .planet img {
+        width: 10rem;
+      }
+
+      .moon img,
+      .satellite img,
+      .potato img,
+      .gabi img,
+      .br img {
+        width: 4rem;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+        .text-content {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-content">
+        Rafael 🙋‍♂️ to mój kolega z lekcji polskiego 📚. Jest z Brazylii 🇧🇷 ale
+        teraz mieszka w Warszawie z żoną 🏙️👫. Rafael bardzo lubi piłkę nożną
+        ⚽. Kiedy miał 10 lat, grał w piłkę z Pelé! 🤯 Nie wiem, czy to prawda,
+        ale fajnie to brzmi. Rafael interesuje się astronomię 🔭 i filmem
+        specialny "Star Wars" 🚀 ponieważ studiuje astronomię. Myślę że zna
+        język kosmitów! 👽 Zna też angielski i portugalski, więc jest bardzo
+        mądry 🧠. Jego ulubiony kolor to niebieski 🔵 ponieważ ulubionym kolorem
+        jej żona jest niebieski. Na śniadanie je chleb z serem, masłem i
+        orzechami 🥪🧀🥜. Bardzo lubi ogórki, pomidory, banany, ananas i
+        truskawka 🥒🍅🍌🍍🍓 ponieważ zawsze widać rano je przed i po lekcja. Ma
+        jedną siostrę, więc jego rodzina jest mała 👨‍👩‍👧. Po południu pracuje i
+        chodzić do domu 🏡. Rafael lubi spacerować z psem 🐕. Lubi pierogi
+        ruskie i żurek i to jego ulubione polskie potrawa 🥟🍲. Ostatnio był w
+        kinie trzy miesiące 🎬. Wieczorem je kolację i ogląda seriale 📺. Rafael
+        jest wysportowany i inteligentny 🏃‍♂️📚. Ostatnio czytał książkę "Atomic
+        Habits" 📖. Na wakacje jedzie na plażę i odpoczywa 🏖️😎. Raz byłam w
+        jego mieszkanie i widze ma statek kosmiczny w domu! 🛸 To bardzo ciekawy
+        kolega! 🤝
+      </div>
+    </div>
+    <div class="animation-container">
+      <div class="planet">
+        <img src="rafael.png" alt="planet" />
+      </div>
+      <div class="moon">
+        <img src="star-angle-svgrepo-com.svg" alt="star" />
+      </div>
+      <div class="satellite">
+        <img src="ufo-spaceship-svgrepo-com.svg" alt="spaceship" />
+      </div>
+      <div class="potato">
+        <img src="telescope-svgrepo-com.svg" alt="potato" />
+      </div>
+      <div class="gabi">
+        <img src="gabi.png" alt="gabi" />
+      </div>
+      <div class="br">
+        <img src="flag-for-brazil-svgrepo-com.svg" alt="br" />
+      </div>
+    </div>
+  </body>
+</html>
